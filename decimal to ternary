@@ -1,0 +1,44 @@
+#include <cstdio>
+#include <iostream>
+#include <math.h>
+using namespace std;
+void convertToTernary(int N)
+{
+
+    if (N == 0)
+        return;
+ 
+    // Finding the remainder
+    // when N is divided by 3
+    int x = N % 3;
+    N /= 3;
+    if (x < 0)
+        N += 1;
+    convertToTernary(N);
+ 
+    // Handling the negative cases
+    if (x < 0)
+        cout << x + (3 * -1);
+    else
+        cout << x;
+}
+ 
+// Function to convert the decimal to ternary
+void convert(int Decimal)
+{
+    cout << "Ternary number of "
+         << Decimal << " is: ";
+    if (Decimal != 0) {
+        convertToTernary(Decimal);
+    }
+    else
+        cout << "0" << endl;
+}
+int main()
+{
+    int Decimal = 2747;
+ 
+    convert(Decimal);
+ 
+    return 0;
+}
